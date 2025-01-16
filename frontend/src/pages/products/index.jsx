@@ -24,10 +24,29 @@ function Products() {
 
 
   }
+
+  
+  function handleSortByPrice() {
+    let sortedProducts = data.sort((a, b) => (a.price - b.price))
+
+    setData([...sortedProducts])
+
+  }
+
+  
+  function handleSortByPriceReverse() {
+    let sortedReversedProducts = data.sort((a, b) => (b.price - a.price))
+
+    setData([...sortedReversedProducts])
+
+  }
+
   return (
     <div style={{ backgroundColor: " #f8f9fa"}}>
       <div className='container'>
         <button onClick={handleSortByName} className='border border-black p-2 mr-1 mt-4'>Sort by name</button>
+        <button onClick={handleSortByPrice} className='border border-black p-2 mr-1 mt-4'>From cheap to expensive</button>
+        <button onClick={handleSortByPriceReverse} className='border border-black p-2 mr-1 mt-4'>From expensive to cheap</button>
         <button onClick={getData} className='border border-black p-2'>Reset</button>
 
         <p className='text-center text-4xl my-5'>Featured Products</p>
